@@ -1,0 +1,41 @@
+{
+    "name": "%_mscocoeval",
+    "training": {
+        "dataset": "json"
+    },
+    "eval": {
+        "metrics": {
+            "sep_ae": {
+                "run_codepred": false,
+                "run_unsupervised": false,
+                "train_codepred": false
+            }
+        }
+    },
+    "json_dataset": {
+        "path": "mscoco-eval",
+        "field_map": [
+            {
+                "from": "sem_input",
+                "to": "s1"
+            },
+            {
+                "from": "sem_input",
+                "to": "template"
+            },
+            {
+                "from": "tgt",
+                "to": "s2"
+            },
+            {
+                "from": "paras",
+                "to": "_refs"
+            }
+        ]
+    },
+    "bottleneck": {
+        "code_predictor": {
+            "infer_codes": true
+        }
+    }
+}

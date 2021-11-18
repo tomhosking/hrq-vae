@@ -1,0 +1,163 @@
+{
+    "name": "qqp",
+    "tag": "hrqvae",
+    "task": "para",
+    "env": {
+        "cuda": true,
+        "data_path": "./data",
+        "gpu_device": 0
+
+    },
+    "training": {
+        "dataset": "json",
+        "use_preprocessed_data": false,
+        "log_interval": 100,
+        "optimizer": {
+            "type": "adam",
+            "lr": 0.005,
+            "beta1": 0.9,
+            "beta2": 0.98,
+            "lr_schedule": true,
+            "lr_warmup_steps": 10000
+        },
+        "batch_size": 32,
+        "optim_batch_size": 64,
+        "clip_gradient": 5,
+        "num_epochs": 50,
+        "warmup_epochs": 5,
+        "suppression_loss_weight": 0.0,
+        "label_smoothing": 0.0,
+        "early_stopping_lag": 0,
+        "reset_metrics": true,
+        "token_dropout": 0.2,
+        "kl_warmup_steps": 10000
+    },
+    "json_dataset": {
+        "path": "wa-triples/qqp-clusters-chunk-extendstop-realexemplars-resample-drop30-N5-R100",
+        "field_map": [
+            {
+                "from": "syn_input",
+                "to": "template"
+            },
+            {
+                "from": "tgt",
+                "to": "s2"
+            },
+            {
+                "from": "sem_input",
+                "to": "s1"
+            }
+        ]
+    },
+    "eval": {
+        "eval_batch_size": 16,
+        "sampler": "beam",
+        "max_out_len": 50,
+        "metrics": {
+            "sep_ae": {
+                "run_oracle": true,
+                "run_codepred": true,
+                "run_unsupervised": true,
+                "eval_dataset": "qqp-splitforgeneval",
+                "flattened_dataset": "qqp-allqs",
+                "cluster_dataset": "qqp-clusters",
+                "enforce_unique_codes": true,
+                "single_target": true
+            }
+        }
+    },
+    "beam_search": {
+        "beam_width": 4,
+        "beam_expansion": 2,
+        "length_alpha": 1.0
+    },
+    "prepro": {
+        "vocab_size": 30522,
+        "sent_window": 0,
+        "tok_window": 100,
+        "concat_ctxt_ans": false,
+        "bio_tagging": true,
+        "tokenizer": "bert-base-uncased"
+    },
+
+    "dropout": 0.1,
+
+    "raw_embedding_dim": 768,
+    
+    "encoder": {
+        "embedding_dim": 768
+    },
+    "decoder": {
+        "embedding_dim": 768
+    },
+    "onehot_bio" : false,
+    "bio_embedding_dim": 8,
+    "freeze_embeddings": true,
+    "freeze_projection": true,
+    "directional_masks": true,
+    "encdec": {
+        "num_encoder_layers": 5,
+        "num_decoder_layers": 5,
+        "num_heads": 8,
+        "dim_feedforward": 2048,
+        "activation": "relu",
+        "bert_encoder": false
+    },
+    "bottleneck": {
+        "modular": true,
+        "embedding_dim": 768,
+        "num_heads": 8,
+        "use_templ_encoding": true,
+        "splice_head_offset": 2,
+        
+        "modules": [
+            {
+                "range": [0,2],
+                "type": "vae",
+                "pooling": false
+            },
+            {
+                "range": [2,8],
+                "type": "vqvae",
+                "pooling": true,
+                "quantizer": {
+                    "codebook_size": 16,
+                    "num_heads": 3,
+                    "residual": false,
+                    "use_gumbel": true,
+                    "use_straight_through": false,
+                    "separate_output_embedding": false,
+                    "use_code_classifier": false,
+                    "additive": true,
+                    "ema": false,
+                    "relative_error": true,
+                    "full_dim_input": true,
+                    "relative_error_cumulative": true,
+                    "head_dropout" : 0.3,
+                    "head_dropout_keep_first" : false,
+                    "init_decay_weight": 0.5,
+                    "init_scale": 1.0,
+                    "init_embeds_xavier": true
+                }
+            }
+        ],
+        "code_predictor": {
+            "input_dim": 768,
+            "output_dim": 16,
+            "num_heads": 3,
+            "transitions": false,
+            "infer_codes": false,
+            "lr": 2e-5,
+            "bsz": 1024,
+            "max_samples": 1000000,
+            "use_recurrent_mlp": true,
+            "autoregressive_lstm": true,
+            "hidden_dim": 2048,
+            "lstm_seq_dim": 576,
+            "beam_width": 6,
+            "blocking_weight": 0.2,
+            "num_steps": 50001
+        }
+        
+    }
+}

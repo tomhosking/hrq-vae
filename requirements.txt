@@ -1,0 +1,3 @@
+git+https://github.com/tomhosking/torchseq.git@v2.1
+notebook
+flair
