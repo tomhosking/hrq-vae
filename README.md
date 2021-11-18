@@ -15,13 +15,13 @@ Then download (or create) the datasets/checkpoints you want to work with:
 
 <a href="http://tomho.sk/models/separator/data_qqp.zip" download>Download our split of QQP</a>
 
-<a href="http://tomho.sk/models/separator/data_mscoco.zip" download>Download our split of MSCOCO</a>
+<a href="http://tomho.sk/models/hrqvae/data_mscoco.zip" download>Download our split of MSCOCO</a>
 
-<a href="#" download>Download a pretrained checkpoint for Paralex</a>
+<a href="http://tomho.sk/models/hrqvae/hrqvae_wa.zip" download>Download a pretrained checkpoint for Paralex</a>
 
-<a href="#" download>Download a pretrained checkpoint for QQP</a>
+<a href="http://tomho.sk/models/hrqvae/hrqvae_qqp.zip" download>Download a pretrained checkpoint for QQP</a>
 
-<a href="#" download>Download a pretrained checkpoint for MSCOCO</a>
+<a href="http://tomho.sk/models/hrqvae/hrqvae_mscoco.zip" download>Download a pretrained checkpoint for MSCOCO</a>
 
 Checkpoint zip files should be unzipped into `./models`, eg `./models/hrqvae-qqp-v1.2`. Data zip files should be unzipped into `./data/`.
 
