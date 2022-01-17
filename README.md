@@ -32,10 +32,10 @@ Note: Paralex was originally scraped from WikiAnswers, so many of the Paralex mo
 To replicate our results (eg for QQP), you can run the following command:
 
 ```
-torchseq --load ./models/hrqvae-qqp --test --patch ./configs/patches/qqp_eval.json
+torchseq --load ./models/hrqvae_qqp --test --patch ./configs/patches/qqp_eval.json
 ```
 
-Change `qqp` to `wa` or `mscoco` to get results for those datasets.
+Change `qqp` to `paralex` or `mscoco` to get results for those datasets.
 
 The `patch' does a few things: (1) it tells the model to use the evaluation set, (2) it enables code prediction and (3) it stops the code prediction module being retrained. 
 
@@ -52,7 +52,7 @@ from torchseq.utils.config import Config
 import torch
 
 # Which checkpoint should we load?
-path_to_model = '../models/hrqvae-wa/'
+path_to_model = '../models/hrqvae_paralex/'
 
 # Define the data
 examples = [
