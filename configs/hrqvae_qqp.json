@@ -14,11 +14,17 @@
         "log_interval": 100,
         "optimizer": {
             "type": "adam",
-            "lr": 0.005,
+            "lr": 0.01,
             "beta1": 0.9,
             "beta2": 0.98,
             "lr_schedule": true,
-            "lr_warmup_steps": 10000
+            "lr_warmup_steps": 10000,
+            "param_groups": {
+                "code_predictor.": {
+                    "lr": 2e-3,
+                    "betas": [0.9, 0.999]
+                }
+            }
         },
         "batch_size": 32,
         "optim_batch_size": 64,
@@ -33,7 +39,7 @@
         "kl_warmup_steps": 10000
     },
     "json_dataset": {
-        "path": "wa-triples/qqp-clusters-chunk-extendstop-realexemplars-resample-drop30-N5-R100",
+        "path": "qqp-clusters-chunk-extendstop-realexemplars-exhaustive-drop30-N26-R100",
         "field_map": [
             {
                 "from": "syn_input",
@@ -58,6 +64,7 @@
                 "run_oracle": true,
                 "run_codepred": true,
                 "run_unsupervised": true,
+                "train_codepred": false,
                 "eval_dataset": "qqp-splitforgeneval",
                 "flattened_dataset": "qqp-allqs",
                 "cluster_dataset": "qqp-clusters",
@@ -109,7 +116,10 @@
         "num_heads": 8,
         "use_templ_encoding": true,
         "splice_head_offset": 2,
-        
+        "joint_train_codepred": true,
+        "reduce_fn": "pool",
+        "reduce_fn_heads": 4,
+        "reduce_fn_dim": 768,
         "modules": [
             {
                 "range": [0,2],
@@ -137,7 +147,11 @@
                     "head_dropout_keep_first" : false,
                     "init_decay_weight": 0.5,
                     "init_scale": 1.0,
-                    "init_embeds_xavier": true
+                    "init_embeds_xavier": true,
+                    "gumbel_temp": 2.0,
+                    "temp_min": 0.5,
+                    "temp_schedule": true,
+                    "temp_schedule_gamma": 10000
                 }
             }
         ],
@@ -156,7 +170,8 @@
             "lstm_seq_dim": 576,
             "beam_width": 6,
             "blocking_weight": 0.2,
-            "num_steps": 50001
+            "num_steps": 50001,
+            "sem_only": true
         }
         
     }

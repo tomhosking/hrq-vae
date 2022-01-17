@@ -23,7 +23,7 @@ Then download (or create) the datasets/checkpoints you want to work with:
 
 <a href="http://tomho.sk/models/hrqvae/hrqvae_mscoco.zip" download>Download a pretrained checkpoint for MSCOCO</a>
 
-Checkpoint zip files should be unzipped into `./models`, eg `./models/hrqvae-qqp-v1.2`. Data zip files should be unzipped into `./data/`.
+Checkpoint zip files should be unzipped into `./models`, eg `./models/hrqvae_qqp`. Data zip files should be unzipped into `./data/`.
 
 Note: Paralex was originally scraped from WikiAnswers, so many of the Paralex models and datasets are labelled as 'wa' or WikiAnswers.
 
@@ -129,13 +129,18 @@ The sentences must be in the same order as in the cluster dataset!
 
 #### The training triples
 
-Generate this using the following command:
+Generate this using the following command for question datasets:
 
 ```
-python3 ./scripts/generate_training_triples.py  --use_diff_templ_for_sem --rate 1.0 --sample_size 5 --extended_stopwords  --real_exemplars --template_dropout 0.3 --resample --dataset qqp-clusters
+python3 ./scripts/generate_training_triples.py  --use_diff_templ_for_sem --rate 1.0 --sample_size 26 --extended_stopwords  --real_exemplars --exhaustive --template_dropout 0.3 --dataset qqp-clusters --min_samples 0
 ```
 
-Replace qqp-clusters with the path to your dataset in "cluster" format.
+Or this command for other datasets:
+```
+python3 ./scripts/generate_training_triples.py  --use_diff_templ_for_sem --rate 1.0 --sample_size 26 --pos_templates --extended_stopwords --no_stopwords  --real_exemplars --exhaustive --template_dropout 0.3 --dataset mscoco-clusters --min_samples 0
+```
+
+Replace `qqp-clusters` with the path to your dataset in "cluster" format.
 
 
 #### A dataset to use for evaluation
@@ -154,10 +159,6 @@ Have a look at the config files, eg `configs/hrqvae_qqp.json`, and update all th
 
 `torchseq --train --config ./configs/hrqvae_mydataset.json`
 
-
-## Using HRQ-VAE in your code
-
-Have a look at `./src/hrqvae.py`.
 
 ## Citation
 
