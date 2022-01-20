@@ -1,3 +1,3 @@
-git+https://github.com/tomhosking/torchseq.git@v2.2
+git+https://github.com/tomhosking/torchseq.git@v2.2.1
 notebook
 flair
