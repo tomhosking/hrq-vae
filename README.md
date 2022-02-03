@@ -11,17 +11,17 @@ pip install -r requirements.txt
 
 Then download (or create) the datasets/checkpoints you want to work with:
 
-<a href="http://tomho.sk/models/separator/data_paralex.zip" download>Download our split of Paralex</a>
+<a href="https://tomho.sk/models/separator/data_paralex.zip" download>Download our split of Paralex</a>
 
-<a href="http://tomho.sk/models/separator/data_qqp.zip" download>Download our split of QQP</a>
+<a href="https://tomho.sk/models/separator/data_qqp.zip" download>Download our split of QQP</a>
 
-<a href="http://tomho.sk/models/hrqvae/data_mscoco.zip" download>Download our split of MSCOCO</a>
+<a href="https://tomho.sk/models/hrqvae/data_mscoco.zip" download>Download our split of MSCOCO</a>
 
-<a href="http://tomho.sk/models/hrqvae/hrqvae_wa.zip" download>Download a pretrained checkpoint for Paralex</a>
+<a href="https://tomho.sk/models/hrqvae/hrqvae_wa.zip" download>Download a pretrained checkpoint for Paralex</a>
 
-<a href="http://tomho.sk/models/hrqvae/hrqvae_qqp.zip" download>Download a pretrained checkpoint for QQP</a>
+<a href="https://tomho.sk/models/hrqvae/hrqvae_qqp.zip" download>Download a pretrained checkpoint for QQP</a>
 
-<a href="http://tomho.sk/models/hrqvae/hrqvae_mscoco.zip" download>Download a pretrained checkpoint for MSCOCO</a>
+<a href="https://tomho.sk/models/hrqvae/hrqvae_mscoco.zip" download>Download a pretrained checkpoint for MSCOCO</a>
 
 Checkpoint zip files should be unzipped into `./models`, eg `./models/hrqvae_qqp`. Data zip files should be unzipped into `./data/`.
 
@@ -52,7 +52,8 @@ from torchseq.utils.config import Config
 import torch
 
 # Which checkpoint should we load?
-path_to_model = '../models/hrqvae_paralex/'
+path_to_model = './models/hrqvae_paralex/'
+path_to_data = './data/'
 
 # Define the data
 examples = [
@@ -64,7 +65,6 @@ examples = [
 # Change the config to use the custom dataset
 with open(path_to_model + "/config.json") as f:
     cfg_dict = json.load(f)
-cfg_dict["env"]["data_path"] = "../data/"
 cfg_dict["dataset"] = "json"
 cfg_dict["json_dataset"] = {
     "path": None,
@@ -79,9 +79,9 @@ cfg_dict["bottleneck"]["code_predictor"]["infer_codes"] = True
 
 # Create the dataset and model
 config = Config(cfg_dict)
-data_loader = JsonDataLoader(config, test_samples=examples)
+data_loader = JsonDataLoader(config, test_samples=examples, data_path=path_to_data)
 checkpoint_path = path_to_model + "/model/checkpoint.pt"
-instance = ParaphraseAgent(config=config, run_id=None, output_path=None, silent=True, verbose=False, training_mode=False)
+instance = ParaphraseAgent(config=config, run_id=None, output_path=None, data_path=path_to_data, silent=True, verbose=False, training_mode=False)
 
 # Load the checkpoint
 instance.load_checkpoint(checkpoint_path)
@@ -158,6 +158,10 @@ For each cluster, select a single sentence to use as the input (assigned to `sem
 Have a look at the config files, eg `configs/hrqvae_qqp.json`, and update all the references to the different datasets, then run:
 
 `torchseq --train --config ./configs/hrqvae_mydataset.json`
+
+## Use HRQ-VAE in your project
+
+Have a look at `./src/hrq_vae.py` for our implementation.
 
 
 ## Citation
