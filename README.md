@@ -1,6 +1,6 @@
 # Hierarchical Sketch Induction for Paraphrase Generation
 
-This repo contains the code for the paper "Hierarchical Sketch Induction for Paraphrase Generation", by Tom Hosking, Hao Tang & Mirella Lapata.
+This repo contains the code for the paper "Hierarchical Sketch Induction for Paraphrase Generation", by Tom Hosking, Hao Tang & Mirella Lapata (ACL 2022).
 
 ## Installation
 
@@ -29,15 +29,7 @@ Note: Paralex was originally scraped from WikiAnswers, so many of the Paralex mo
 
 ## Inference with pre-trained checkpoints
 
-To replicate our results (eg for QQP), you can run the following command:
-
-```
-torchseq --load ./models/hrqvae_qqp --test --patch ./configs/patches/qqp_eval.json
-```
-
-Change `qqp` to `paralex` or `mscoco` to get results for those datasets.
-
-The `patch' does a few things: (1) it tells the model to use the evaluation set, (2) it enables code prediction and (3) it stops the code prediction module being retrained. 
+To replicate our results (eg for QQP), have a look at the example in `./examples/Replication-QQP.ipynb`.
 
 ## Inference on a custom dataset
 
@@ -99,7 +91,7 @@ print(pred_output)
 Train a fresh checkpoint using:
 
 ```
-torchseq --train --config ./configs/hrqvae_wa.json
+torchseq --train --config ./configs/hrqvae_paralex.json
 ```
 
 ## Training on a new dataset
