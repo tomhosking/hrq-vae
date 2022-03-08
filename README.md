@@ -158,4 +158,13 @@ Have a look at `./src/hrq_vae.py` for our implementation.
 
 ## Citation
 
-TBC
+```
+@misc{hosking2022hierarchical,
+    title={Hierarchical Sketch Induction for Paraphrase Generation},
+    author={Tom Hosking and Hao Tang and Mirella Lapata},
+    year={2022},
+    eprint={2203.03463},
+    archivePrefix={arXiv},
+    primaryClass={cs.CL}
+}
+```
