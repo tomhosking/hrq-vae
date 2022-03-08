@@ -1,6 +1,6 @@
-# Hierarchical Sketch Induction for Paraphrase Generation
+# [Hierarchical Sketch Induction for Paraphrase Generation](https://arxiv.org/abs/2203.03463)
 
-This repo contains the code for the paper "Hierarchical Sketch Induction for Paraphrase Generation", by Tom Hosking, Hao Tang & Mirella Lapata (ACL 2022).
+This repo contains the code for the paper [Hierarchical Sketch Induction for Paraphrase Generation](https://arxiv.org/abs/2203.03463), by Tom Hosking, Hao Tang & Mirella Lapata (ACL 2022).
 
 ## Installation
 
