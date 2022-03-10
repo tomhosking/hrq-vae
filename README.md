@@ -1,13 +1,15 @@
 # [Hierarchical Sketch Induction for Paraphrase Generation](https://arxiv.org/abs/2203.03463)
 
+
+<img src="https://raw.githubusercontent.com/tomhosking/hrq-vae/main/hrqvae_gm.png" width="300" align="right" alt="Graphical Model diagram for HRQ-VAE" />
+
+
+
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/hierarchical-sketch-induction-for-paraphrase/paraphrase-generation-on-mscoco)](https://paperswithcode.com/sota/paraphrase-generation-on-mscoco?p=hierarchical-sketch-induction-for-paraphrase)
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/hierarchical-sketch-induction-for-paraphrase/paraphrase-generation-on-paralex)](https://paperswithcode.com/sota/paraphrase-generation-on-paralex?p=hierarchical-sketch-induction-for-paraphrase)
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/hierarchical-sketch-induction-for-paraphrase/paraphrase-generation-on-quora-question-pairs-1)](https://paperswithcode.com/sota/paraphrase-generation-on-quora-question-pairs-1?p=hierarchical-sketch-induction-for-paraphrase)
 
 This repo contains the code for the paper [Hierarchical Sketch Induction for Paraphrase Generation](https://arxiv.org/abs/2203.03463), by Tom Hosking, Hao Tang & Mirella Lapata (ACL 2022).
-
-<img src="https://raw.githubusercontent.com/tomhosking/hrq-vae/main/hrqvae_gm.png" width="300" align="right" alt="Graphical Model diagram for HRQ-VAE" />
-
 
 
 ## Installation
