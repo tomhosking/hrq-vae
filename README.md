@@ -6,7 +6,7 @@
 
 This repo contains the code for the paper [Hierarchical Sketch Induction for Paraphrase Generation](https://arxiv.org/abs/2203.03463), by Tom Hosking, Hao Tang & Mirella Lapata (ACL 2022).
 
-<img src="https://raw.githubusercontent.com/tomhosking/hrq-vae/main/hrqvae_gm.png" width="300" aligh="right" alt="Graphical Model diagram for HRQ-VAE" />
+<img src="https://raw.githubusercontent.com/tomhosking/hrq-vae/main/hrqvae_gm.png" width="300" align="right" alt="Graphical Model diagram for HRQ-VAE" />
 
 
 
