@@ -28,7 +28,7 @@ Then download (or create) the datasets/checkpoints you want to work with:
 
 <a href="https://tomho.sk/models/hrqvae/data_mscoco.zip" download>Download our split of MSCOCO</a>
 
-<a href="https://tomho.sk/models/hrqvae/hrqvae_wa.zip" download>Download a pretrained checkpoint for Paralex</a>
+<a href="https://tomho.sk/models/hrqvae/hrqvae_paralex.zip" download>Download a pretrained checkpoint for Paralex</a>
 
 <a href="https://tomho.sk/models/hrqvae/hrqvae_qqp.zip" download>Download a pretrained checkpoint for QQP</a>
 
