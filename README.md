@@ -97,6 +97,10 @@ print(pred_output)
 ```
 > ['what is the salary for a soccer player?', 'what do soccer players earn?']
 
+## Inference with multiple outputs
+
+If you want to generate multiple diverse paraphrases for each input (aka 'top-k' inference), have a look at `./examples/topk.ipynb`.
+
 ## Training from scratch
 
 Train a fresh checkpoint using:
