@@ -15,7 +15,7 @@ We propose a generative model of paraphrase generation, that encourages syntacti
 
 ## Installation
 
-First, create a fresh virtualenv and install TorchSeq and other dependencies:
+First, create a fresh virtualenv and install the dependencies:
 ```
 pip install -r requirements.txt
 ```
@@ -37,6 +37,8 @@ Then download (or create) the datasets/checkpoints you want to work with:
 Checkpoint zip files should be unzipped into `./models`, eg `./models/hrqvae_qqp`. Data zip files should be unzipped into `./data/`.
 
 Note: Paralex was originally scraped from WikiAnswers, so many of the Paralex models and datasets are labelled as 'wa' or WikiAnswers.
+
+Note 2: As per [this issue](https://github.com/tomhosking/hrq-vae/issues/2), the dataset splits used in the paper for MSCOCO and QQP (based on official splits) are actually somewhat leaky. We recommend using deduped versions of these splits (eg [here for QQP](https://tomho.sk/models/hrqvae/qqp_deduped.zip))for future work.
 
 ## Inference with pre-trained checkpoints
 
