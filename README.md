@@ -1,4 +1,4 @@
-# [Hierarchical Sketch Induction for Paraphrase Generation](https://arxiv.org/abs/2203.03463)
+# [Hierarchical Sketch Induction for Paraphrase Generation](https://aclanthology.org/2022.acl-long.178/)
 
 
 <img src="https://raw.githubusercontent.com/tomhosking/hrq-vae/main/hrqvae_gm.png" width="300" align="right" alt="Graphical Model diagram for HRQ-VAE" />
@@ -9,7 +9,7 @@
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/hierarchical-sketch-induction-for-paraphrase/paraphrase-generation-on-paralex)](https://paperswithcode.com/sota/paraphrase-generation-on-paralex?p=hierarchical-sketch-induction-for-paraphrase)
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/hierarchical-sketch-induction-for-paraphrase/paraphrase-generation-on-quora-question-pairs-1)](https://paperswithcode.com/sota/paraphrase-generation-on-quora-question-pairs-1?p=hierarchical-sketch-induction-for-paraphrase)
 
-This repo contains the code for the paper [Hierarchical Sketch Induction for Paraphrase Generation](https://arxiv.org/abs/2203.03463), by Tom Hosking, Hao Tang & Mirella Lapata (ACL 2022).
+This repo contains the code for the paper [Hierarchical Sketch Induction for Paraphrase Generation](https://aclanthology.org/2022.acl-long.178/), by Tom Hosking, Hao Tang & Mirella Lapata (ACL 2022).
 
 We propose a generative model of paraphrase generation, that encourages syntactic diversity by conditioning on an explicit syntactic sketch. We introduce Hierarchical Refinement Quantized Variational Autoencoders (HRQ-VAE), a method for learning decompositions of dense encodings as a sequence of discrete latent variables that make iterative refinements of increasing granularity. This hierarchy of codes is learned through end-to-end training, and represents fine-to-coarse grained information about the input. We use HRQ-VAE to encode the syntactic form of an input sentence as a path through the hierarchy, allowing us to more easily predict syntactic sketches at test time. Extensive experiments, including a human evaluation, confirm that HRQ-VAE learns a hierarchical representation of the input space, and generates paraphrases of higher quality than previous systems.
 
